@@ -32,7 +32,7 @@ savedArticles: {
       ref: 'Article',
       default: [],
     },
-  
+
   },
   {
     timestamps: true,
