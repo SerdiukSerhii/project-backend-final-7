@@ -6,6 +6,8 @@ import { authenticate } from '../middleware/authenticate.js';
 
 const userRouter = Router();
 
+userRouter.use(authenticate);
+
 userRouter.get('/users/:userId', celebrate(userIdSchema), ctrl.getUserById);
 
 userRouter.post(
