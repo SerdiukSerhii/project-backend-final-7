@@ -1,6 +1,3 @@
-// export const registerUser = (req, res) => {
-//   res.status(201).json('Register Ok');
-// };
 import bcrypt from 'bcrypt';
 import createHttpError from 'http-errors';
 import { createSession, setSessionCookies } from '../../services/index.js';
@@ -9,7 +6,7 @@ import { User } from '../../models/user.js';
 export const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
 
-  const existingUser = await User.findOne({ email: email.toLowerCase() });
+  const existingUser = await User.findOne({ email });
   if (existingUser) {
     throw createHttpError(400, 'Email in use');
   }
