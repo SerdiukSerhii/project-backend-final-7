@@ -1,13 +1,23 @@
 import { Router } from 'express';
+import { celebrate } from 'celebrate';
+import { articles as ctrl } from '../controllers/index.js';
 import { getSavedArticles } from '../controllers/articles/getSavedArticles.js';
 import { authenticate } from '../middleware/authenticate.js'; 
 import { createArticle } from '../controllers/articles/createArticle.js';
 import { upload } from '../middleware/multer.js';
+import { getArticleByIdSchema } from '../validations/index.js';
 
 const articlesRouter = Router();
 
-articlesRouter.get('/saved', authenticate, getSavedArticles);
-articlesRouter.post('/', authenticate, upload.single('img'), createArticle);
+articlesRouter.use(authenticate);
 
+articlesRouter.get('/articles/saved', getSavedArticles);
+articlesRouter.post('/', upload.single('img'), createArticle);
 
-export default articlesRouter; 
+articlesRouter.get(
+  '/articles/:articleId',
+  celebrate(getArticleByIdSchema),
+  ctrl.getArticleById,
+);
+
+export default articlesRouter;
