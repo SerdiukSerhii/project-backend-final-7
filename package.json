@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-hw",
+  "name": "project-backend-final-7",
   "version": "1.0.0",
-  "description": "Homework for Node.js course.",
+  "description": "project backend final ",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/server.js",
@@ -10,16 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SerdiukSerhii/nodejs-hw.git"
+    "url": "git+https://github.com/SerdiukSerhii/project-backend-final-7.git"
   },
   "keywords": [],
-  "author": "SERHII SERDIUK <Serdyuk.logist@gmail.com>",
+  "author": "",
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/SerdiukSerhii/nodejs-hw/issues"
+    "url": "https://github.com/SerdiukSerhii/project-backend-final-7/issues"
   },
-  "homepage": "https://github.com/SerdiukSerhii/nodejs-hw#readme",
+  "homepage": "https://github.com/SerdiukSerhii/project-backend-final-7#readme",
   "dependencies": {
     "bcrypt": "^6.0.0",
     "celebrate": "^15.0.3",

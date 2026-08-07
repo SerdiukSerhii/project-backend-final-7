@@ -1,1 +1,1 @@
-Homework for Node.js course.
+Harmoniq - final project
