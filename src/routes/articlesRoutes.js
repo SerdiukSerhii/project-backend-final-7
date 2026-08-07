@@ -8,7 +8,9 @@ import { getArticleByIdSchema } from '../validations/index.js';
 
 const articlesRouter = Router();
 
-articlesRouter.get('/articles/saved', authenticate, getSavedArticles);
+articlesRouter.use(authenticate);
+
+articlesRouter.get('/articles/saved', getSavedArticles);
 
 articlesRouter.get(
   '/articles/:articleId',
