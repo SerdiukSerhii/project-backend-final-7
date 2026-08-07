@@ -11,12 +11,14 @@ const articlesRouter = Router();
 
 articlesRouter.get('/articles/user/:userId', getUserArticles);
 
-articlesRouter.get('/articles/saved', authenticate, getSavedArticles);
-
 articlesRouter.get(
   '/articles/:articleId',
   celebrate(getArticleByIdSchema),
   ctrl.getArticleById,
 );
+
+articlesRouter.use(authenticate);
+
+articlesRouter.get('/articles/saved', getSavedArticles);
 
 export default articlesRouter;
