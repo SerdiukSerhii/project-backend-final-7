@@ -12,7 +12,6 @@ userRouter.get('/users/:userId', celebrate(userIdSchema), ctrl.getUserById);
 
 userRouter.post(
   '/users/saved-articles/:articleId',
-  authenticate,
   celebrate(addSavedArticleSchema),
   ctrl.addSavedArticleController,
 );
