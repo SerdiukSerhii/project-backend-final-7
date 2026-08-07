@@ -5,6 +5,8 @@ import { getUserById } from './users/getUserById.js';
 
 import { getArticleById } from './articles/getArticleById.js';
 
+import { updateCurrentUser } from './users/updateCurrentUser.js';
+
 
 export const auth = {
   registerUser,
@@ -13,6 +15,7 @@ export const auth = {
 
 export const user = {
   getUserById,
+  updateCurrentUser,
 };
 
 export const articles = {

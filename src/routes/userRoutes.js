@@ -1,13 +1,28 @@
 import { Router } from 'express';
-import { user as ctrl } from '../controllers/index.js';
-import { userIdSchema } from '../validations/index.js';
 import { celebrate } from 'celebrate';
+
+import { user as ctrl } from '../controllers/index.js';
+import {
+  userIdSchema,
+  updateCurrentUserSchema,
+} from '../validations/index.js';
 import { authenticate } from '../middleware/authenticate.js';
+import { avatarUpload } from '../middleware/multer.js';
 
 const userRouter = Router();
 
-userRouter.use(authenticate);
+userRouter.patch(
+  '/users/me',
+  authenticate,
+  avatarUpload.single('avatar'),
+  celebrate(updateCurrentUserSchema),
+  ctrl.updateCurrentUser,
+);
 
-userRouter.get('/users/:userId', celebrate(userIdSchema), ctrl.getUserById);
+userRouter.get(
+  '/users/:userId',
+  celebrate(userIdSchema),
+  ctrl.getUserById,
+);
 
 export default userRouter;
