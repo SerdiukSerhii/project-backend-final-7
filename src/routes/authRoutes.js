@@ -7,5 +7,6 @@ const router = Router();
 
 router.post('/auth/register', celebrate(registerUserSchema), ctrl.registerUser);
 router.post('/auth/login', celebrate(loginUserSchema), ctrl.loginUser);
+router.post('/auth/refresh', ctrl.refreshUserSession);
 
 export default router;
