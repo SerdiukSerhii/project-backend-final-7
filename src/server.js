@@ -27,9 +27,10 @@ app.use(helmet());
 app.use(express.json());
 app.use(cookieParser());
 
+app.use(articlesRouter);
 app.use(authRoutes);
 app.use(userRoutes);
-app.use(articlesRouter);
+
 app.use(categoriesRouter);
 
 app.use(notFoundHandler);
