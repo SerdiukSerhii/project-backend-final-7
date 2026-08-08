@@ -5,6 +5,7 @@ import { getUserById } from './users/getUserById.js';
 
 import { getArticleById } from './articles/getArticleById.js';
 import { addSavedArticleController } from './users/addSavedArticle.js';
+import { getAllArticles } from './articles/getAllArticles.js';
 
 export const auth = {
   registerUser,
@@ -18,4 +19,5 @@ export const user = {
 
 export const articles = {
   getArticleById,
+  getAllArticles,
 };

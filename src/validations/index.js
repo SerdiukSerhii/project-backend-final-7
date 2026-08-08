@@ -3,6 +3,7 @@ import { loginUserSchema } from './auth/loginUser.js';
 import { userIdSchema } from './users/userId.js';
 import { getArticleByIdSchema } from './articles/getArticleById.js';
 import { addSavedArticleSchema } from './users/addSavedArticle.js';
+import { getAllArticlesSchema } from './articles/getAllArticles.js';
 
 export {
   registerUserSchema,
@@ -10,4 +11,5 @@ export {
   userIdSchema,
   getArticleByIdSchema,
   addSavedArticleSchema,
+  getAllArticlesSchema,
 };
