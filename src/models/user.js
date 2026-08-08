@@ -27,10 +27,22 @@ const userSchema = new Schema(
       default: 0,
       min: 0,
     },
+savedArticles: {
+      type: [Schema.Types.ObjectId],
+      ref: 'Article',
+      default: [],
+    },
+
   },
   {
     timestamps: true,
   },
 );
+
+userSchema.methods.toJSON = function () {
+  const obj = this.toObject();
+  delete obj.password;
+  return obj;
+};
 
 export const User = model('User', userSchema);
