@@ -4,7 +4,7 @@ import { loginUser } from './auth/loginUser.js';
 import { getUserById } from './users/getUserById.js';
 
 import { getArticleById } from './articles/getArticleById.js';
-
+import { addSavedArticleController } from './users/addSavedArticle.js';
 
 export const auth = {
   registerUser,
@@ -13,6 +13,7 @@ export const auth = {
 
 export const user = {
   getUserById,
+  addSavedArticleController,
 };
 
 export const articles = {
