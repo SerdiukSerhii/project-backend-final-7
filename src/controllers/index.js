@@ -14,11 +14,8 @@ export const auth = {
   loginUser,
 };
 
-export const users = {
-  updateUserAvatar,
-  };
-
 export const user = {
+  updateUserAvatar,
   getUserById,
   addSavedArticleController,
 };
@@ -26,8 +23,5 @@ export const user = {
 export const articles = {
   getArticleById,
   getAllArticles,
-};
-
-export const articles = {
   deleteArticle,
 };
