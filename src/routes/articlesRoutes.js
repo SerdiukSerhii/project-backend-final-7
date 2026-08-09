@@ -7,7 +7,8 @@ import { authenticate } from '../middleware/authenticate.js';
 import { articleIdSchema } from '../validations/articles/deleteArticle.js';
 import { createArticle } from '../controllers/articles/createArticle.js';
 import { upload } from '../middleware/multer.js';
-import { getArticleByIdSchema, getAllArticlesSchema } from '../validations/index.js';
+import { getArticleByIdSchema, getAllArticlesSchema, editArticleSchema } from '../validations/index.js';
+export { updateArticleSchema } from './articles/updateArticle.js';
 
 const articlesRouter = Router();
 
@@ -25,7 +26,16 @@ articlesRouter.post('/', authenticate, upload.single('img'), createArticle);
 articlesRouter.get('/articles/user/:userId', getUserArticles);
 
 articlesRouter.get(
-  '/articles/:articleId', celebrate(getArticleByIdSchema), ctrl.getArticleById,
+  '/articles/:articleId',
+  celebrate(getArticleByIdSchema),
+  ctrl.getArticleById,
+);
+
+articlesRouter.patch(
+  '/articles/:articleId',
+  authenticate,
+  celebrate(editArticleSchema),  
+  ctrl.editArticle               
 );
 
 export default articlesRouter;

@@ -8,6 +8,8 @@ import { deleteArticle } from './articles/deleteArticle.js';
 import { getArticleById } from './articles/getArticleById.js';
 import { addSavedArticleController } from './users/addSavedArticle.js';
 import { getAllArticles } from './articles/getAllArticles.js';
+import { editArticle } from './articles/editArticle.js';
+
 
 export const auth = {
   registerUser,
@@ -25,4 +27,7 @@ export const articles = {
   getArticleById,
   getAllArticles,
   deleteArticle,
+  editArticle,
 };
+
+
