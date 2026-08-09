@@ -29,9 +29,10 @@ app.use(cookieParser());
 
 app.use(articlesRouter);
 app.use(authRoutes);
-app.use(userRoutes);
 
 app.use(categoriesRouter);
+
+app.use(userRoutes);
 
 app.use(notFoundHandler);
 

@@ -1,6 +1,6 @@
 import { registerUser } from './auth/registerUser.js';
 import { updateUserAvatar } from './users/updateUserAvatar.js';
-import { loginUser,  refreshUserSession } from './auth/loginUser.js';
+import { loginUser, refreshUserSession } from './auth/loginUser.js';
 
 import { getUserById } from './users/getUserById.js';
 import { deleteArticle } from './articles/deleteArticle.js';
@@ -9,7 +9,7 @@ import { getArticleById } from './articles/getArticleById.js';
 import { addSavedArticleController } from './users/addSavedArticle.js';
 import { getAllArticles } from './articles/getAllArticles.js';
 import { editArticle } from './articles/editArticle.js';
-
+import { getCategories } from './categories/getCategories.js';
 
 export const auth = {
   registerUser,
@@ -31,3 +31,6 @@ export const articles = {
 };
 
 
+export const categories = {
+  getCategories,
+};
