@@ -1,7 +1,11 @@
 import { Router } from 'express';
 import { user as ctrl } from '../controllers/index.js';
 import { upload } from '../middleware/multer.js';
-import { userIdSchema, addSavedArticleSchema } from '../validations/index.js';
+import {
+  userIdSchema,
+  addSavedArticleSchema,
+  removeSavedArticleSchema,
+} from '../validations/index.js';
 import { celebrate } from 'celebrate';
 import { authenticate } from '../middleware/authenticate.js';
 
@@ -21,6 +25,12 @@ userRouter.post(
   '/users/saved-articles/:articleId',
   celebrate(addSavedArticleSchema),
   ctrl.addSavedArticleController,
+);
+
+userRouter.delete(
+  '/users/saved-articles/:articleId',
+  celebrate(removeSavedArticleSchema),
+  ctrl.removeSavedArticleController,
 );
 
 export default userRouter;

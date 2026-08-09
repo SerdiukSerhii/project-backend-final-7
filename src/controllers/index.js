@@ -7,6 +7,7 @@ import { deleteArticle } from './articles/deleteArticle.js';
 
 import { getArticleById } from './articles/getArticleById.js';
 import { addSavedArticleController } from './users/addSavedArticle.js';
+import { removeSavedArticleController } from './users/removeSavedArticle.js';
 import { getAllArticles } from './articles/getAllArticles.js';
 import { editArticle } from './articles/editArticle.js';
 import { getCategories } from './categories/getCategories.js';
@@ -21,6 +22,7 @@ export const user = {
   updateUserAvatar,
   getUserById,
   addSavedArticleController,
+  removeSavedArticleController,
 };
 
 export const articles = {
