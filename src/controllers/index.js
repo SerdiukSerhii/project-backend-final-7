@@ -1,6 +1,7 @@
 import { registerUser } from './auth/registerUser.js';
 import { updateUserAvatar } from './users/updateUserAvatar.js';
 import { loginUser, refreshUserSession } from './auth/loginUser.js';
+import { logoutUser } from './auth/logoutUser.js';
 
 import { getUserById } from './users/getUserById.js';
 import { deleteArticle } from './articles/deleteArticle.js';
@@ -15,6 +16,7 @@ export const auth = {
   registerUser,
   loginUser,
   refreshUserSession,
+  logoutUser,
 };
 
 export const user = {
