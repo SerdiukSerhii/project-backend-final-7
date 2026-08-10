@@ -1,19 +1,32 @@
 import { Router } from 'express';
+import { celebrate } from 'celebrate';
+
 import { user as ctrl } from '../controllers/index.js';
-import { upload } from '../middleware/multer.js';
 import {
   userIdSchema,
+  updateCurrentUserSchema,
   addSavedArticleSchema,
   removeSavedArticleSchema,
 } from '../validations/index.js';
-import { celebrate } from 'celebrate';
 import { authenticate } from '../middleware/authenticate.js';
+import { upload, avatarUpload } from '../middleware/multer.js';
 
 const userRouter = Router();
 
-userRouter.get('/users/:userId', celebrate(userIdSchema), ctrl.getUserById);
+userRouter.get(
+  '/users/:userId',
+  celebrate(userIdSchema),
+  ctrl.getUserById,
+);
 
 userRouter.use(authenticate);
+
+userRouter.patch(
+  '/users/me',
+  avatarUpload.single('avatar'),
+  celebrate(updateCurrentUserSchema),
+  ctrl.updateCurrentUser,
+);
 
 userRouter.patch(
   '/users/me/avatar',

@@ -1,10 +1,10 @@
 import createError from 'http-errors';
-import { Article } from '../../models/article.js'; 
+import { Article } from '../../models/article.js';
 
 export const editArticle = async (req, res, next) => {
   try {
     const { articleId } = req.params;
-    const { _id: userId } = req.user; 
+    const { _id: userId } = req.user;
 
     const article = await Article.findById(articleId);
 

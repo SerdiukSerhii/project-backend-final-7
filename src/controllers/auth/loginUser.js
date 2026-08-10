@@ -67,4 +67,3 @@ export const refreshUserSession = async (req, res) => {
     message: 'Session refreshed',
   });
 };
-
