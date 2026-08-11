@@ -28,18 +28,23 @@ articlesRouter.get(
 
 articlesRouter.get('/articles/user/:userId', getUserArticles);
 
-articlesRouter.use(authenticate);
-
-articlesRouter.post('/articles', upload.single('img'), createArticle);
+articlesRouter.post(
+  '/articles',
+  authenticate,
+  upload.single('img'),
+  createArticle,
+);
 
 articlesRouter.patch(
   '/articles/:articleId',
+  authenticate,
   celebrate(editArticleSchema),
   ctrl.editArticle,
 );
 
 articlesRouter.delete(
   '/articles/:articleId',
+  authenticate,
   celebrate(articleIdSchema),
   ctrl.deleteArticle,
 );

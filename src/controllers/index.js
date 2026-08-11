@@ -9,6 +9,7 @@ import { updateCurrentUser } from './users/updateCurrentUser.js';
 import { addSavedArticleController } from './users/addSavedArticle.js';
 import { removeSavedArticleController } from './users/removeSavedArticle.js';
 import { getSavedArticles } from './users/getSavedArticles.js';
+import { getCurrentUser } from './users/getCurrentUser.js';
 
 import { deleteArticle } from './articles/deleteArticle.js';
 import { getArticleById } from './articles/getArticleById.js';
@@ -27,6 +28,7 @@ export const auth = {
 export const user = {
   updateUserAvatar,
   getUserById,
+  getCurrentUser,
   getSavedArticles,
   updateCurrentUser,
   addSavedArticleController,
