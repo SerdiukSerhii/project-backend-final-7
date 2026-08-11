@@ -13,11 +13,7 @@ import { upload, avatarUpload } from '../middleware/multer.js';
 
 const userRouter = Router();
 
-userRouter.get(
-  '/users/:userId',
-  celebrate(userIdSchema),
-  ctrl.getUserById,
-);
+userRouter.get('/users/:userId', celebrate(userIdSchema), ctrl.getUserById);
 
 userRouter.use(authenticate);
 
@@ -33,6 +29,8 @@ userRouter.patch(
   upload.single('avatar'),
   ctrl.updateUserAvatar,
 );
+
+userRouter.get('/articles/saved', ctrl.getSavedArticles);
 
 userRouter.post(
   '/users/saved-articles/:articleId',

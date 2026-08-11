@@ -1,12 +1,14 @@
 import { registerUser } from './auth/registerUser.js';
 import { updateUserAvatar } from './users/updateUserAvatar.js';
-import { loginUser, refreshUserSession } from './auth/loginUser.js';
+import { loginUser } from './auth/loginUser.js';
+import { refreshUserSession } from './auth/refreshUserSession.js';
 import { logoutUser } from './auth/logoutUser.js';
 
 import { getUserById } from './users/getUserById.js';
 import { updateCurrentUser } from './users/updateCurrentUser.js';
 import { addSavedArticleController } from './users/addSavedArticle.js';
 import { removeSavedArticleController } from './users/removeSavedArticle.js';
+import { getSavedArticles } from './users/getSavedArticles.js';
 
 import { deleteArticle } from './articles/deleteArticle.js';
 import { getArticleById } from './articles/getArticleById.js';
@@ -25,6 +27,7 @@ export const auth = {
 export const user = {
   updateUserAvatar,
   getUserById,
+  getSavedArticles,
   updateCurrentUser,
   addSavedArticleController,
   removeSavedArticleController,
@@ -36,7 +39,6 @@ export const articles = {
   deleteArticle,
   editArticle,
 };
-
 
 export const categories = {
   getCategories,
