@@ -13,6 +13,7 @@ import { upload, avatarUpload } from '../middleware/multer.js';
 
 const userRouter = Router();
 
+userRouter.get('/users/me', authenticate, ctrl.getCurrentUser);
 userRouter.get('/users/:userId', celebrate(userIdSchema), ctrl.getUserById);
 
 userRouter.use(authenticate);
