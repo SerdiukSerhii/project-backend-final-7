@@ -9,8 +9,8 @@ import { upload } from '../middleware/multer.js';
 import {
   getArticleByIdSchema,
   getAllArticlesSchema,
-  editArticleSchema,
   getUserArticlesSchema,
+  updateArticleSchema,
 } from '../validations/index.js';
 
 const articlesRouter = Router();
@@ -43,7 +43,7 @@ articlesRouter.post(
 articlesRouter.patch(
   '/articles/:articleId',
   authenticate,
-  celebrate(editArticleSchema),
+  celebrate(updateArticleSchema),
   ctrl.editArticle,
 );
 
