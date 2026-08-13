@@ -27,6 +27,7 @@ export async function saveFileToCloudinary(buffer, userId) {
         if (error) {
           return reject(error);
         }
+
         resolve(result);
       },
     );

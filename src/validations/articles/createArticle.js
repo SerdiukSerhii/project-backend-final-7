@@ -29,5 +29,5 @@ export const createArticleSchema = Joi.object({
     'string.min': 'Ім\'я автора повинно бути не менше 4 символів',
     'string.max': 'Ім\'я автора повинно бути не більше 48 символів',
     'any.required': 'Поле автор є обов\'язковим',
-  }), 
+  }),
 });

@@ -4,6 +4,7 @@ export const getArticlesByOwnerId = async (ownerId, page = 1, limit = 12) => {
   const skip = (page - 1) * limit;
 
   const articles = await Article.find({ ownerId })
+    .populate('ownerId', 'name avatarUrl')
     .sort({ createdAt: -1 })
     .skip(skip)
     .limit(limit);
