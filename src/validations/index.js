@@ -4,6 +4,7 @@ import { userIdSchema } from './users/userId.js';
 import { getArticleByIdSchema } from './articles/getArticleById.js';
 import { addSavedArticleSchema } from './users/addSavedArticle.js';
 import { getAllArticlesSchema } from './articles/getAllArticles.js';
+import { updateArticleSchema } from './articles/editArticle.js'; 
 
 export {
   registerUserSchema,
@@ -12,4 +13,5 @@ export {
   getArticleByIdSchema,
   addSavedArticleSchema,
   getAllArticlesSchema,
+  updateArticleSchema as editArticleSchema,
 };
