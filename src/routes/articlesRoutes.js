@@ -9,6 +9,7 @@ import { upload } from '../middleware/multer.js';
 import {
   getArticleByIdSchema,
   getAllArticlesSchema,
+  getUserArticlesSchema,
   updateArticleSchema,
 } from '../validations/index.js';
 
@@ -26,7 +27,11 @@ articlesRouter.get(
   ctrl.getArticleById,
 );
 
-articlesRouter.get('/articles/user/:userId', getUserArticles);
+articlesRouter.get(
+  '/articles/user/:userId',
+  celebrate(getUserArticlesSchema),
+  getUserArticles,
+);
 
 articlesRouter.post(
   '/articles',
