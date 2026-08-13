@@ -8,7 +8,7 @@ import { removeSavedArticleSchema } from './users/removeSavedArticle.js';
 
 import { getArticleByIdSchema } from './articles/getArticleById.js';
 import { getAllArticlesSchema } from './articles/getAllArticles.js';
-import { editArticleSchema } from './articles/editArticle.js';
+import { updateArticleSchema } from './articles/editArticle.js';
 
 export {
   registerUserSchema,
@@ -19,6 +19,5 @@ export {
   removeSavedArticleSchema,
   getArticleByIdSchema,
   getAllArticlesSchema,
-  editArticleSchema,
+  updateArticleSchema,
 };
-
