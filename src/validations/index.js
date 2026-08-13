@@ -10,9 +10,6 @@ import { getArticleByIdSchema } from './articles/getArticleById.js';
 import { getAllArticlesSchema } from './articles/getAllArticles.js';
 import { editArticleSchema } from './articles/editArticle.js';
 
-
-
-
 export {
   registerUserSchema,
   loginUserSchema,
@@ -24,3 +21,4 @@ export {
   getAllArticlesSchema,
   editArticleSchema,
 };
+
