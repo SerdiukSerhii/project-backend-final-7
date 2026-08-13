@@ -10,6 +10,7 @@ import {
   getArticleByIdSchema,
   getAllArticlesSchema,
   editArticleSchema,
+  getUserArticlesSchema,
 } from '../validations/index.js';
 
 const articlesRouter = Router();
@@ -26,7 +27,11 @@ articlesRouter.get(
   ctrl.getArticleById,
 );
 
-articlesRouter.get('/articles/user/:userId', getUserArticles);
+articlesRouter.get(
+  '/articles/user/:userId',
+  celebrate(getUserArticlesSchema),
+  getUserArticles,
+);
 
 articlesRouter.post(
   '/articles',
