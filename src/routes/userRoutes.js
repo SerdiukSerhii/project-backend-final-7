@@ -31,7 +31,7 @@ userRouter.patch(
   ctrl.updateUserAvatar,
 );
 
-userRouter.get('/articles/saved', authenticate, ctrl.getSavedArticles);
+userRouter.get('/users/saved-articles', authenticate, ctrl.getSavedArticles);
 
 userRouter.post(
   '/users/saved-articles/:articleId',
