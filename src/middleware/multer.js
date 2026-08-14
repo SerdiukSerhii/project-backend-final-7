@@ -17,12 +17,3 @@ export const upload = multer({
   },
   fileFilter: imageFileFilter,
 });
-
-export const avatarUpload = multer({
-  storage: multer.memoryStorage(),
-  limits: {
-    fileSize: 1 * 1024 * 1024,
-    files: 1,
-  },
-  fileFilter: imageFileFilter,
-});

@@ -2,7 +2,6 @@ import bcrypt from 'bcrypt';
 import createHttpError from 'http-errors';
 
 import { User } from '../../models/user.js';
-import { saveFileToCloudinary } from '../../utils/saveFileToCloudinary.js';
 
 export const updateCurrentUser = async (req, res) => {
   const { name, email, password } = req.body ?? {};
@@ -10,8 +9,7 @@ export const updateCurrentUser = async (req, res) => {
   const hasDataToUpdate =
     name !== undefined ||
     email !== undefined ||
-    password !== undefined ||
-    Boolean(req.file);
+    password !== undefined;
 
   if (!hasDataToUpdate) {
     throw createHttpError(400, 'At least one field must be provided');
@@ -40,14 +38,6 @@ export const updateCurrentUser = async (req, res) => {
 
   if (password !== undefined) {
     updateData.password = await bcrypt.hash(password, 10);
-  }
-
-  if (req.file) {
-    const result = await saveFileToCloudinary(
-      req.file.buffer,
-      req.user._id,
-    );
-    updateData.avatarUrl = result.secure_url;
   }
 
   const updatedUser = await User.findByIdAndUpdate(

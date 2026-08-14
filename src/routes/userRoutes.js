@@ -9,7 +9,7 @@ import {
   removeSavedArticleSchema,
 } from '../validations/index.js';
 import { authenticate } from '../middleware/authenticate.js';
-import { upload, avatarUpload } from '../middleware/multer.js';
+import { upload } from '../middleware/multer.js';
 
 const userRouter = Router();
 
@@ -19,7 +19,6 @@ userRouter.get('/users/:userId', celebrate(userIdSchema), ctrl.getUserById);
 userRouter.patch(
   '/users/me',
   authenticate,
-  avatarUpload.single('avatar'),
   celebrate(updateCurrentUserSchema),
   ctrl.updateCurrentUser,
 );
