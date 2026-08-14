@@ -4,7 +4,6 @@ import { loginUserSchema } from './auth/loginUser.js';
 import { userIdSchema } from './users/userId.js';
 import { getAllAuthorsSchema } from './authors/getAllAuthors.js';
 
-export { registerUserSchema, loginUserSchema, userIdSchema, getAllAuthorsSchema };
 import { updateCurrentUserSchema } from './users/updateCurrentUser.js';
 import { addSavedArticleSchema } from './users/addSavedArticle.js';
 import { removeSavedArticleSchema } from './users/removeSavedArticle.js';
@@ -21,6 +20,7 @@ export {
   updateCurrentUserSchema,
   addSavedArticleSchema,
   removeSavedArticleSchema,
+  getAllAuthorsSchema,
   getArticleByIdSchema,
   getAllArticlesSchema,
   getUserArticlesSchema,

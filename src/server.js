@@ -32,6 +32,7 @@ app.use(cookieParser());
 app.use(authRoutes);
 app.use(userRoutes);
 app.use(articlesRouter);
+app.use(authorsRouter);
 app.use(categoriesRouter);
 
 app.use(notFoundHandler);
@@ -45,5 +46,3 @@ await connectMongoDB();
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-
-app.use(authorsRouter);
