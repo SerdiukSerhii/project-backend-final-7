@@ -12,6 +12,7 @@ import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import articlesRouter from './routes/articlesRoutes.js';
 import categoriesRouter from './routes/categoriesRoutes.js';
+import authorsRouter from './routes/authorsRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
@@ -44,3 +45,5 @@ await connectMongoDB();
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+app.use(authorsRouter);

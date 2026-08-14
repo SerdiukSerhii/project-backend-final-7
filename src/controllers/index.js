@@ -5,6 +5,7 @@ import { refreshUserSession } from './auth/refreshUserSession.js';
 import { logoutUser } from './auth/logoutUser.js';
 
 import { getUserById } from './users/getUserById.js';
+import { getAllAuthors } from './authors/getAllAuthors.js';
 import { updateCurrentUser } from './users/updateCurrentUser.js';
 import { addSavedArticleController } from './users/addSavedArticle.js';
 import { removeSavedArticleController } from './users/removeSavedArticle.js';
@@ -44,4 +45,8 @@ export const articles = {
 
 export const categories = {
   getCategories,
+};
+
+export const authors = {
+  getAllAuthors,
 };
