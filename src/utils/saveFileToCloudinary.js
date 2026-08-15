@@ -35,3 +35,26 @@ export async function saveFileToCloudinary(buffer, userId) {
     uploadStream.end(buffer);
   });
 }
+
+export async function saveArticleImageToCloudinary(buffer) {
+  const options = {
+    folder: 'students-app/articles',
+    resource_type: 'image',
+    transformation: [{ fetch_format: 'auto', quality: 'auto' }],
+  };
+
+  return new Promise((resolve, reject) => {
+    const uploadStream = cloudinary.uploader.upload_stream(
+      options,
+      (error, result) => {
+        if (error) {
+          return reject(error);
+        }
+
+        resolve(result);
+      },
+    );
+
+    uploadStream.end(buffer);
+  });
+}
