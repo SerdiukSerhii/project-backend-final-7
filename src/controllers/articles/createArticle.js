@@ -2,6 +2,7 @@ import { Article } from '../../models/article.js';
 import { saveArticleImageToCloudinary } from '../../utils/saveArticleImageToCloudinary.js';
 import { createArticleSchema } from '../../validations/articles/createArticle.js';
 
+
 export const createArticle = async (req, res, next) => {
   try {
     const { error, value } = createArticleSchema.validate(req.body);
@@ -18,7 +19,7 @@ export const createArticle = async (req, res, next) => {
       return res.status(400).json({
         status: 'error',
         code: 400,
-        message: 'Поле фото статті є обов\'язковим',
+        message: "Поле фото статті є обов'язковим",
       });
     }
 

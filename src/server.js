@@ -16,11 +16,15 @@ import authorsRouter from './routes/authorsRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
+const allowedOrigins = [
+  process.env.FRONTEND_DOMAIN,
+  process.env.FRONTEND_PRODUCTION_DOMAIN,
+].filter(Boolean);
 
 app.use(logger);
 app.use(
   cors({
-    origin: process.env.FRONTEND_DOMAIN,
+    origin: allowedOrigins,
     methods: ['GET', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     credentials: true,
   }),
