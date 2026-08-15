@@ -1,14 +1,16 @@
 import { Article } from '../../models/article.js';
+import { saveArticleImageToCloudinary } from '../../utils/saveArticleImageToCloudinary.js';
 import { createArticleSchema } from '../../validations/articles/createArticle.js';
 
 export const createArticle = async (req, res, next) => {
   try {
-    const { error } = createArticleSchema.validate(req.body);
+    const { error, value } = createArticleSchema.validate(req.body);
+
     if (error) {
       return res.status(400).json({
         status: 'error',
         code: 400,
-        message: error.details.message,
+        message: error.details[0].message,
       });
     }
 
@@ -20,22 +22,21 @@ export const createArticle = async (req, res, next) => {
       });
     }
 
-    const ownerId = req.user._id;
-
-    const imgPath = req.file.path || req.file.filename || 'https://example.com';
+    const uploadResult = await saveArticleImageToCloudinary(
+      req.file.buffer,
+    );
 
     const newArticle = await Article.create({
-      ...req.body,
-      ownerId,
-      img: imgPath,
+      ...value,
+      ownerId: req.user._id,
+      img: uploadResult.secure_url,
     });
 
-    res.status(201).json({
+    return res.status(201).json({
       status: 'success',
       code: 201,
       data: newArticle,
     });
-
   } catch (error) {
     next(error);
   }

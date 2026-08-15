@@ -25,9 +25,4 @@ export const createArticleSchema = Joi.object({
     'any.required': 'Поле дата є обов\'язковим',
   }),
 
-  author: Joi.string().min(4).max(48).required().messages({
-    'string.min': 'Ім\'я автора повинно бути не менше 4 символів',
-    'string.max': 'Ім\'я автора повинно бути не більше 48 символів',
-    'any.required': 'Поле автор є обов\'язковим',
-  }),
 });
