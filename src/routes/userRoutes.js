@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { celebrate } from 'celebrate';
 
+
 import { user as ctrl } from '../controllers/index.js';
 import {
   userIdSchema,
@@ -14,6 +15,7 @@ import { upload } from '../middleware/multer.js';
 const userRouter = Router();
 
 userRouter.get('/users/me', authenticate, ctrl.getCurrentUser);
+userRouter.get('/users/saved-articles', authenticate, ctrl.getSavedArticles);
 userRouter.get('/users/:userId', celebrate(userIdSchema), ctrl.getUserById);
 
 userRouter.patch(
@@ -29,8 +31,6 @@ userRouter.patch(
   upload.single('avatar'),
   ctrl.updateUserAvatar,
 );
-
-userRouter.get('/users/saved-articles', authenticate, ctrl.getSavedArticles);
 
 userRouter.post(
   '/users/saved-articles/:articleId',
