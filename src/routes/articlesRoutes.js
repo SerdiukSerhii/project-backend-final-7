@@ -1,5 +1,60 @@
 import { Router } from 'express';
+import { celebrate } from 'celebrate';
+import { articles as ctrl } from '../controllers/index.js';
+import { getUserArticles } from '../controllers/articles/articlesControllers.js';
+import { authenticate } from '../middleware/authenticate.js';
+import { optionalAuthenticate } from '../middleware/optionalAuthenticate.js';
+import { articleIdSchema } from '../validations/articles/deleteArticle.js';
+import { createArticle } from '../controllers/articles/createArticle.js';
+import { upload } from '../middleware/multer.js';
+import {
+  getArticleByIdSchema,
+  getAllArticlesSchema,
+  getUserArticlesSchema,
+  updateArticleSchema,
+} from '../validations/index.js';
 
 const articlesRouter = Router();
+
+articlesRouter.get(
+  '/articles',
+  optionalAuthenticate,
+  celebrate(getAllArticlesSchema),
+  ctrl.getAllArticles,
+);
+
+articlesRouter.get(
+  '/articles/:articleId',
+  celebrate(getArticleByIdSchema),
+  ctrl.getArticleById,
+);
+
+articlesRouter.get(
+  '/articles/user/:userId',
+  celebrate(getUserArticlesSchema),
+  getUserArticles,
+);
+
+articlesRouter.post(
+  '/articles',
+  authenticate,
+  upload.single('img'),
+  createArticle,
+);
+
+articlesRouter.patch(
+  '/articles/:articleId',
+  authenticate,
+  upload.single('img'),
+  celebrate(updateArticleSchema),
+  ctrl.editArticle,
+);
+
+articlesRouter.delete(
+  '/articles/:articleId',
+  authenticate,
+  celebrate(articleIdSchema),
+  ctrl.deleteArticle,
+);
 
 export default articlesRouter;
