@@ -16,12 +16,17 @@ import authorsRouter from './routes/authorsRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
+const allowedOrigins = [
+  process.env.FRONTEND_DOMAIN,
+  process.env.FRONTEND_PRODUCTION_DOMAIN,
+].filter(Boolean);
 
 app.use(logger);
 app.use(
   cors({
-    origin: '*',
-    methods: 'GET,PATCH,POST,DELETE',
+    origin: allowedOrigins,
+    methods: ['GET', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
+    credentials: true,
   }),
 );
 app.use(helmet());
@@ -31,6 +36,7 @@ app.use(cookieParser());
 app.use(authRoutes);
 app.use(userRoutes);
 app.use(articlesRouter);
+app.use(authorsRouter);
 app.use(categoriesRouter);
 
 app.use(notFoundHandler);
@@ -44,5 +50,3 @@ await connectMongoDB();
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-
-app.use(authorsRouter);
