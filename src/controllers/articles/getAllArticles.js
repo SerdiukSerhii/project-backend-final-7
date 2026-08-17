@@ -17,7 +17,23 @@ export const getAllArticles = async (req, res) => {
 
   const totalPages = Math.ceil(totalArticles / perPage);
 
-  res
-    .status(200)
-    .json({ page, perPage, totalPages, totalArticles, articles: articles });
+  const savedIds = req.user
+    ? new Set(req.user.savedArticles.map(id => id.toString()))
+    : null;
+
+  const articlesWithSavedFlag = articles.map(article => {
+    const plainArticle = article.toObject();
+    return {
+      ...plainArticle,
+      isSaved: savedIds ? savedIds.has(article._id.toString()) : false,
+    };
+  });
+
+  res.status(200).json({
+    page,
+    perPage,
+    totalPages,
+    totalArticles,
+    articles: articlesWithSavedFlag,
+  });
 };

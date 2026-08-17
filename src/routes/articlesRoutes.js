@@ -3,6 +3,7 @@ import { celebrate } from 'celebrate';
 import { articles as ctrl } from '../controllers/index.js';
 import { getUserArticles } from '../controllers/articles/articlesControllers.js';
 import { authenticate } from '../middleware/authenticate.js';
+import { optionalAuthenticate } from '../middleware/optionalAuthenticate.js';
 import { articleIdSchema } from '../validations/articles/deleteArticle.js';
 import { createArticle } from '../controllers/articles/createArticle.js';
 import { upload } from '../middleware/multer.js';
@@ -17,6 +18,7 @@ const articlesRouter = Router();
 
 articlesRouter.get(
   '/articles',
+  optionalAuthenticate,
   celebrate(getAllArticlesSchema),
   ctrl.getAllArticles,
 );
