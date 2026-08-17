@@ -43,6 +43,7 @@ articlesRouter.post(
 articlesRouter.patch(
   '/articles/:articleId',
   authenticate,
+  upload.single('img'),
   celebrate(updateArticleSchema),
   ctrl.editArticle,
 );
