@@ -1,51 +1,53 @@
 # 📰 Articles API
 
-**Articles API** — це RESTful бекенд-застосунок, розроблений на Node.js, Express.js та MongoDB. Він забезпечує автентифікацію користувачів, керування профілями та статтями, а також роботу зі збереженими статтями.
+**Articles API** is a RESTful backend application built with Node.js, Express.js, and MongoDB. It provides user authentication, profile and article management, as well as functionality for saving and managing bookmarked articles.
 
-## 🚀 Основні можливості
+## 🚀 Features
 
-- Реєстрація та авторизація користувачів
-- Вихід користувача із системи
-- Автентифікація та авторизація за допомогою токенів
-- Керування сесіями та оновлення сесії користувача
-- Керування профілем та аватаром користувача
-- CRUD-операції для роботи зі статтями
-- Додавання та видалення статей зі списку збережених
-- Пагінація, фільтрація та сортування статей
-- Робота з категоріями статей
-- Валідація вхідних даних
-- Централізована обробка помилок
-- Налаштований CORS
-- Робота з MongoDB через Mongoose
-- Інтерактивна документація API за допомогою Swagger
+- User registration and authentication
+- User logout
+- Token-based authentication and authorization
+- Session management and session refresh
+- User profile and avatar management
+- Full CRUD operations for articles
+- Adding and removing articles from the saved list
+- Article pagination, filtering, and sorting
+- Article category management
+- Input data validation
+- Centralized error handling
+- Configured CORS
+- MongoDB integration with Mongoose
+- Interactive API documentation with Swagger
 
-## 🛠 Використані технології
+## 🛠 Tech Stack
 
-🔹 Node.js
-🔹 Express.js
-🔹 MongoDB
-🔹 Mongoose
-🔹 JWT
-🔹 bcrypt
-🔹 Joi
-🔹 Swagger (OpenAPI)
-🔹 Cookie-parser
-🔹 dotenv
+| Technology            | Purpose                           |
+| :-------------------- | :----------------------------     |
+| **Node.js**           | Backend runtime environment       |
+| **Express.js**        | Web framework for building the API|
+| **MongoDB**           | NoSQL database                    |
+| **Mongoose**          | MongoDB object modeling           |
+| **JWT**               | User authentication               |
+| **bcrypt**            | Password hashing                  |
+| **Joi**               | Request validation                |
+| **Swagger (OpenAPI)** | API documentation                 |
+| **cookie-parser**     | Cookie handling                   |
+| **dotenv**            | Environment variable management   |
 
-## 📖 Документація API
+## 📖 API Documentation
 
-Повна документація API доступна через [Swagger UI](https://fs-125-7-back.onrender.com/api-docs/).
+Full API documentation is available through [Swagger UI](https://fs-125-7-back.onrender.com/api-docs/).
 
-## 🔐 Автентифікація
+## 🔐 Authentication
 
-- API використовує токени для автентифікації користувачів.
-- Захищені маршрути доступні лише авторизованим користувачам.
-- Сесія користувача може бути оновлена за допомогою refresh token.
-- Авторизація та перевірка доступу реалізовані за допомогою middleware.
-- Cookies використовуються для роботи із сесіями та токенами.
+- The API uses tokens to authenticate users.
+- Protected routes are accessible only to authenticated users.
+- User sessions can be refreshed using a refresh token.
+- Authentication and access control are implemented through middleware.
+- Cookies are used to manage sessions and authentication tokens
 
 ## 🌐 API
 
-Backend доступний за адресою:
+The backend is deployed and available at:
 
 https://fs-125-7-back.onrender.com
